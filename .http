@@ -1,0 +1,14 @@
+GET http://localhost:3000/api/weather/daily
+
+###
+
+POST http://localhost:3000/api/todo/create
+Content-Type: application/json
+
+{
+  "title": "asd"
+}
+
+###
+
+GET http://localhost:3000/api/todo

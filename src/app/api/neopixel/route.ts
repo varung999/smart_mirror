@@ -14,6 +14,6 @@ export async function GET() {
     const colors = channel.array;
 
     // update color-values
-    colors[42] = 0xffcc22;
+    colors[7] = 0xffcc22;
     ws281x.render();
 }

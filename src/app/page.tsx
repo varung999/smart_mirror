@@ -2,6 +2,7 @@ import { Weather } from "@/components/Weather";
 import { fetchWeather } from "@/services/fetchWeather";
 import Link from "next/link";
 import Image from "next/image"
+import { useNexoPixel } from "@/services/useNeopixel";
 
 export default async function HomePage() {
   const weather = await fetchWeather()
@@ -44,12 +45,12 @@ export default async function HomePage() {
         >
           App
         </Link>
-        <Link
-          href="/"
+        <button
+          onClick={useNexoPixel}
           className="flex h-full w-full border-2 border-white bg-gray-200 rounded-2xl items-center justify-center hover:border-red-500 transition-all duration-300"
         >
-          App
-        </Link>
+          Use Nexo Pixel
+        </button>
       </div>
     </main>
   );

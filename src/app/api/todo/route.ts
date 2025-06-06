@@ -4,7 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
     try {
-        const data = db.prepare('SELECT * FROM todos').all() as TodoType[]
+        const stmt = db.prepare('SELECT * FROM todos')
+        const data = stmt.all() as TodoType[];
         return NextResponse.json(data);
     } catch (error) {
         console.error('Error fetching todos:', error);

@@ -1,6 +1,7 @@
 import ws281x from 'rpi-ws281x-native';
 
 export async function GET() {
+    'use server'
     const options = {
         gpio: 18,
         dma: 10,

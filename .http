@@ -15,4 +15,8 @@ GET http://localhost:3000/api/todo
 
 ###
 
-GET http://localhost:3000/api/cta
+POST http://localhost:3000/api/chat
+
+{
+  "message": "open the weather app"
+}

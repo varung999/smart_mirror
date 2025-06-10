@@ -11,12 +11,13 @@ const systemPrompt = `
     - weather
     - todo
     - home
-    - unknown
     - cta
+    - news
+    - unknown
 
     Do not say anything else. Do not explain. Do not include a reason. Do not say "I think..." or "The user likely meant...".
 
-    Respond with exactly one of: weather, todo, home, or unknown.
+    Respond with exactly one of: weather, todo, home, cta, news, or unknown.
     
     Do not explain. Do not think. Do not write anything else. Just respond with a single word from the list.
 
@@ -70,6 +71,8 @@ export async function POST(request: NextRequest) {
                 }
             ]
         })
+
+        console.log(response.message.content)
 
         return NextResponse.json({ message: (response.message.content || 'unknown') })
 

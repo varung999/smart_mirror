@@ -1,5 +1,4 @@
 'use client'
-
 import { useRouter } from "next/navigation";
 import { PropsWithChildren, useEffect, useRef } from "react";
 
@@ -10,7 +9,7 @@ export function DetectSpeech({ children }: PropsWithChildren) {
     const audioContextRef = useRef<AudioContext | null>(null);
     const silenceStartRef = useRef<number | null>(null);
     const silenceThreshold = 0.01;
-    const silenceDuration = 5000;
+    const silenceDuration = 4000;
 
     useEffect(() => {
         let stream: MediaStream;
@@ -54,7 +53,8 @@ export function DetectSpeech({ children }: PropsWithChildren) {
             mediaRecorderRef.current.onstop = async () => {
                 const blob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
                 const formData = new FormData();
-                formData.append('file', blob, new Date().toString() + '.wav')
+                const filename = new Date().toString() + '.wav'
+                formData.append('file', blob, filename)
 
                 const response = await fetch('http://localhost:3000/api/chat', { method: 'POST', body: formData })
                 const data = await response.json()
@@ -62,6 +62,8 @@ export function DetectSpeech({ children }: PropsWithChildren) {
                 const { message } = data
                 if (message === 'weather') router.push('/weather')
                 if (message === 'todo') router.push('/todo')
+                if (message === 'cta') router.push('/cta')
+                if (message === 'news') router.push('/news')
                 if (message === 'home') router.push('/')
 
                 // Restart recording
@@ -84,7 +86,7 @@ export function DetectSpeech({ children }: PropsWithChildren) {
             stream?.getTracks().forEach(track => track.stop());
             audioContextRef.current?.close();
         };
-    }, []);
+    }, [router]);
 
     return children
 }

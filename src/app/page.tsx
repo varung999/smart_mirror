@@ -8,7 +8,7 @@ export default async function HomePage() {
 
   return (
     <DetectSpeech>
-      <main className="h-screen p-4 bg-black flex flex-col gap-y-4">
+      <main className="h-screen p-4 bg-black text-white flex flex-col gap-y-4">
         <div className="w-full border border-white rounded-2xl flex items-center justify-between px-16 py-1">
           <div className="flex flex-col items-center text-white">
             <label className="text-xl">Temperature: <span className="font-semibold">{weather.current.temp}°</span></label>
@@ -31,8 +31,8 @@ export default async function HomePage() {
         <div className="grid grid-cols-2 gap-4 flex-1">
           <AppButton text="Weather" href="/weather" />
           <AppButton text="Todo" href="/todo" />
-          <AppButton text="App" href="/" />
-          <AppButton text="App" href="/" />
+          <AppButton text="CTA" href="/cta" />
+          <AppButton text="News" href="/news" />
         </div>
       </main>
     </DetectSpeech>

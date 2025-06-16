@@ -2,6 +2,7 @@ import { DetectSpeech } from "@/components/DetectSpeech";
 import { fetchNews } from "@/services/fetchNews";
 import Image from "next/image"
 
+export const dynamic = "force-dynamic"
 export default async function NewsPage() {
     const news = await fetchNews()
 

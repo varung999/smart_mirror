@@ -2,6 +2,7 @@ import { DetectSpeech } from "@/components/DetectSpeech";
 import { fetchCta } from "@/services/fetchCta";
 import { Fragment } from "react";
 
+export const dynamic = "force-dynamic"
 export default async function CtaPage() {
     const cta = await fetchCta()
 

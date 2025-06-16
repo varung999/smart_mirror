@@ -3,6 +3,7 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import { getPort } from "get-port-please";
 import { startServer } from "next/dist/server/lib/start-server";
 import { join } from "path";
+import { exec } from "child_process";
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
@@ -62,6 +63,9 @@ app.whenReady().then(() => {
   createWindow();
 
   ipcMain.on("ping", () => console.log("pong"));
+
+  exec('pnpm next:dev')
+
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });

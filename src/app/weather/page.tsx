@@ -13,6 +13,7 @@ const days = [
     "Saturday"
 ]
 
+export const dynamic = "force-dynamic"
 export default async function WeatherPage() {
     const weather = await fetchWeather()
 
@@ -28,7 +29,7 @@ export default async function WeatherPage() {
                             .join(' ')}
                     </label>
                     <Image
-                        src={`${process.env.OPEN_WEATHER_ICON_URL}/${weather.current.weather[0].icon}.png`}
+                        src={`https://openweathermap.org/img/wn/${weather.current.weather[0].icon}.png`}
                         alt={weather.current.weather[0].description}
                         width={125}
                         height={125}

@@ -3,6 +3,7 @@ import Image from "next/image"
 import { DetectSpeech } from "@/components/DetectSpeech";
 import { AppButton } from "@/components/AppButton";
 
+export const dynamic = "force-dynamic"
 export default async function HomePage() {
   const weather = await fetchWeather()
 

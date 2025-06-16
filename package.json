@@ -1,15 +1,10 @@
 {
-  "name": "nextjs_approuter_electron",
+  "name": "smart_mirror",
   "version": "0.0.1",
   "private": true,
   "homepage": "https://saybackend.com",
-  "author": {
-    "name": "spa5k",
-    "email": "admin@saybackend.com",
-    "url": "https://saybackend.com"
-  },
   "main": "build/main.js",
-  "description": "NextJS App with Electron",
+  "description": "An app for a smart mirror",
   "scripts": {
     "next:dev": "next dev",
     "next:build": "next build",
